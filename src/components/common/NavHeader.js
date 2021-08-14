@@ -13,7 +13,7 @@ import { MenuOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
-function NavHeader() {
+function NavHeader({ setIsLogin }) {
   const history = useHistory();
   const [isVisible, setisVisible] = useState(false);
   return (
@@ -23,10 +23,11 @@ function NavHeader() {
         <div className="flex justify-end items-center">
           <Button
             icon={<LogoutOutlined />}
-            className="bg-yellow-500 hover:bg-color-600 cursor-pointer text-white border-black rounded-lg hover:bg-yellow-600"
+            className="bg-yellow-500 hover:bg-color-600 cursor-pointer text-white border-yellow-400 rounded-lg hover:bg-yellow-600"
             onClick={() => {
+              setIsLogin(false);
               localStorage.setItem("isLogin", false);
-              window.location.href = "/";
+              history.push("/home");
             }}
           >
             Logout
@@ -54,7 +55,14 @@ function NavHeader() {
         >
           หน้าแรก
         </div>
-        <div>เปลี่ยนเป็นร้านค้า</div>
+        <div
+          onClick={() => {
+            setisVisible(false);
+            history.push("/merchant");
+          }}
+        >
+          เปลี่ยนเป็นร้านค้า
+        </div>
       </Drawer>
     </div>
   );

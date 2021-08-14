@@ -19,6 +19,7 @@ const App = () => {
   const location = useLocation();
 
   const [isLogin, setIsLogin] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
     window.addEventListener("storage", () => {
@@ -47,7 +48,7 @@ const App = () => {
           <div className="w-full h-full relative">
             <img
               className="relative mx-auto"
-              src="assets/X - 28.png"
+              src="assets/X - 29.png"
               css={css`
                 max-width: 475px !important;
               `}
@@ -78,18 +79,25 @@ const App = () => {
     <>
       <Switch>
         <Layout className="layout">
-          {location?.pathname !== "/home" && <NavHeader />}
+          {location?.pathname !== "/home" && (
+            <NavHeader setIsLogin={setIsLogin} />
+          )}
           <Route exact path="/">
-            <HomePage />
+            <HomePage subscribed={subscribed} setSubscribed={setSubscribed} />
+          </Route>
+          <Route exact path="/merchant">
+            <div className="flex justify-center items-center w-full h-screen text-2xl">
+              Coming Soon ...
+            </div>
           </Route>
           <Route exact path="/create-package">
-            <ChoosePackagePage />
+            <ChoosePackagePage setSubscribed={setSubscribed} />
           </Route>
           <Route exact path="/home">
             <div className="w-full h-full relative">
               <img
                 className="relative mx-auto"
-                src="assets/X - 28.png"
+                src="assets/X - 29.png"
                 css={css`
                   max-width: 475px !important;
                 `}

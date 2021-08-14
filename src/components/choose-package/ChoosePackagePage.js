@@ -6,7 +6,7 @@ import { PaymentPage } from "../payment/PaymentPage";
 import { AccountInfoPage } from "../account-info/AccountInfoPage";
 import { LimitationPage } from "../limitation/LimitationPage";
 import { ChooseFood } from "./ChooseFood";
-import {SubscribePackagePage} from "../subscribe-package/SubscribePackagePage";
+import { SubscribePackagePage } from "../subscribe-package/SubscribePackagePage";
 
 export const PAGE = {
   CHOOSE_PACKAGE: "choose-package-page",
@@ -14,10 +14,10 @@ export const PAGE = {
   ACCOUNT_INFO: "account-info",
   LIMITATION: "limitation",
   CHOOSE_FOOD: "choose-food",
-  SUBSCRIBE_PACKAGE: "subscribe-package-page"
+  SUBSCRIBE_PACKAGE: "subscribe-package-page",
 };
 
-export const ChoosePackagePage = () => {
+export const ChoosePackagePage = ({ setSubscribed }) => {
   const [form] = Form.useForm();
   const [page, setPage] = useState(PAGE.CHOOSE_PACKAGE);
 
@@ -38,7 +38,9 @@ export const ChoosePackagePage = () => {
       return <ChooseFood setPage={setPage} />;
     }
     case PAGE.SUBSCRIBE_PACKAGE: {
-      return <SubscribePackagePage setPage={setPage} />
+      return (
+        <SubscribePackagePage setPage={setPage} setSubscribed={setSubscribed} />
+      );
     }
     default: {
       return <></>;

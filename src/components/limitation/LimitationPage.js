@@ -32,7 +32,7 @@ export const LimitationPage = ({ setPage }) => {
   };
 
   return (
-    <div className="w-full h-full text-2xl px-5 py-12">
+    <div className="w-full h-screen text-2xl px-5 py-12">
       <div
         className="bg-gray-50 mx-auto p-5 text-yellow-400 font-bold border-black border-2 rounded-lg"
         css={css`
