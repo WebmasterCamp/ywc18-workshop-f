@@ -13,7 +13,7 @@ import { MenuOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
-function NavHeader() {
+function NavHeader({ setIsLogin }) {
   const history = useHistory();
   const [isVisible, setisVisible] = useState(false);
   return (
@@ -25,8 +25,9 @@ function NavHeader() {
             icon={<LogoutOutlined />}
             className="bg-yellow-500 hover:bg-color-600 cursor-pointer text-white border-yellow-400 rounded-lg hover:bg-yellow-600"
             onClick={() => {
+              setIsLogin(false);
               localStorage.setItem("isLogin", false);
-              window.location.href = "/";
+              history.push("/home");
             }}
           >
             Logout
@@ -56,6 +57,7 @@ function NavHeader() {
         </div>
         <div
           onClick={() => {
+            setisVisible(false);
             history.push("/merchant");
           }}
         >

@@ -79,13 +79,14 @@ const App = () => {
     <>
       <Switch>
         <Layout className="layout">
-          {location?.pathname !== "/home" && <NavHeader />}
+          {location?.pathname !== "/home" && (
+            <NavHeader setIsLogin={setIsLogin} />
+          )}
           <Route exact path="/">
             <HomePage subscribed={subscribed} setSubscribed={setSubscribed} />
           </Route>
           <Route exact path="/merchant">
             <div className="flex justify-center items-center w-full h-screen text-2xl">
-              {" "}
               Coming Soon ...
             </div>
           </Route>
