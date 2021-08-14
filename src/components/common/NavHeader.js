@@ -48,6 +48,7 @@ function NavHeader({ setIsLogin }) {
         visible={isVisible}
       >
         <div
+          className="cursor-pointer"
           onClick={() => {
             setisVisible(false);
             history.push("/home");
@@ -56,6 +57,7 @@ function NavHeader({ setIsLogin }) {
           หน้าแรก
         </div>
         <div
+          className="cursor-pointer"
           onClick={() => {
             setisVisible(false);
             history.push("/merchant");
