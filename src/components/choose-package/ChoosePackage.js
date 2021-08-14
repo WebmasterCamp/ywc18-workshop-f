@@ -10,9 +10,7 @@ const PACKAGE = {
   MONTH: "month",
 };
 
-
-export const ChoosePackage = ({ setPage }) => {
-
+export const ChoosePackage = ({ setPage, setPrice }) => {
   const [selectedPackage, setSelectedPackage] = useState(PACKAGE.THREE);
 
   return (
@@ -28,6 +26,7 @@ export const ChoosePackage = ({ setPage }) => {
           <div
             onClick={() => {
               setSelectedPackage(PACKAGE.THREE);
+              setPrice("999");
             }}
             className={`p-8 border-2 border-black text-sm rounded-2xl cursor-pointer mb-8 text-black ${
               selectedPackage === PACKAGE.THREE
@@ -45,6 +44,7 @@ export const ChoosePackage = ({ setPage }) => {
           <div
             onClick={() => {
               setSelectedPackage(PACKAGE.MONTH);
+              setPrice("1,499");
             }}
             className={`p-8 border-2 border-black text-sm rounded-2xl text-black ${
               selectedPackage === PACKAGE.MONTH

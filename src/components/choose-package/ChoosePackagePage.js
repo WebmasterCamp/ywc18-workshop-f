@@ -20,13 +20,14 @@ export const PAGE = {
 export const ChoosePackagePage = ({ setSubscribed }) => {
   const [form] = Form.useForm();
   const [page, setPage] = useState(PAGE.CHOOSE_PACKAGE);
+  const [price, setPrice] = useState("999");
 
   switch (page) {
     case PAGE.CHOOSE_PACKAGE: {
-      return <ChoosePackage setPage={setPage} />;
+      return <ChoosePackage setPage={setPage} setPrice={setPrice} />;
     }
     case PAGE.PAYMENT: {
-      return <PaymentPage setPage={setPage} />;
+      return <PaymentPage setPage={setPage} price={price} />;
     }
     case PAGE.ACCOUNT_INFO: {
       return <AccountInfoPage setPage={setPage} />;

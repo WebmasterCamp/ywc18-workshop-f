@@ -6,7 +6,7 @@ import { PAGE } from "../choose-package/ChoosePackagePage";
 import { PrimaryButton } from "../PrimaryButton";
 import { LeftOutlined } from "@ant-design/icons";
 
-export const PaymentPage = ({ setPage }) => {
+export const PaymentPage = ({ setPage, price }) => {
   const [form] = Form.useForm();
   const [paymentMethod, setPaymentMethod] = useState(false);
   const [formData, setFormData] = useState({
@@ -33,7 +33,7 @@ export const PaymentPage = ({ setPage }) => {
       >
         <div className="text-5xl text-black">ชำระเงิน</div>
         <div className="text-lg text-black mt-8">ราคาทั้งหมด</div>
-        <div className="mt-1 text-2xl font-bold">999 บาท</div>
+        <div className="mt-1 text-2xl font-bold">{price} บาท</div>
 
         <div className="mt-8 text-base text-black">เลือกวิธีชำระเงิน</div>
         <div className="flex justify-between items-center">

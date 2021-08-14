@@ -7,7 +7,13 @@ import HomePage from "./components/home/HomePage";
 
 /** @jsxImportSource @emotion/react */
 import { Layout, Button } from "antd";
-import { Switch, Route, useHistory, useLocation } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  useHistory,
+  useLocation,
+  Redirect,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { LoginPage } from "./components/login/LoginPage";
 import { RegisterPage } from "./components/login/RegisterPage";
@@ -43,7 +49,7 @@ const App = () => {
 
   if (!isLogin) {
     return (
-      <div>
+      <Switch>
         <Route exact path="/login">
           <LoginPage
             setIsLogin={setIsLogin}
@@ -82,7 +88,8 @@ const App = () => {
             </Button>
           </div>
         </Route>
-      </div>
+        <Redirect to="/home" />
+      </Switch>
     );
   }
 
@@ -132,6 +139,7 @@ const App = () => {
             </div>
           </Route>
         </Layout>
+        <Redirect to="/home" />
       </Switch>
     </>
   );
