@@ -72,7 +72,7 @@ export const MenuListPage = () => {
             </div>
 
             {isToday ? items1.map(item => {
-                return <div className="flex-col">
+                return <div key={item.name} className="flex-col">
                     <div className="text-base font-bold text-yellow-400">{item.time}</div>
                     <div className="flex spacex-9 items-start justify-between bg-gray-100 p-3 rounded-lg">
                         <div className="text-sm">
@@ -89,7 +89,7 @@ export const MenuListPage = () => {
                     </div>
                 </div>
             }) : items2.map(item => {
-                return <div className="flex-col">
+                return <div key={item.name} className="flex-col">
                     <div className="text-base font-bold text-yellow-400">{item.time}</div>
                     <div className="flex spacex-9 items-start justify-between bg-gray-100 p-3 rounded-lg">
                         <div className="text-sm">

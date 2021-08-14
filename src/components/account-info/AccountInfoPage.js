@@ -24,23 +24,23 @@ export const AccountInfoPage = ({ setPage }) => {
               <Input />
             </Form.Item>
             เบอร์โทรศัพท์
-            <Form.Item name="ืname">
+            <Form.Item name="phone">
               <Input />
             </Form.Item>
             ที่อยู่สำหรับจัดส่งอาหาร
-            <Form.Item name="ืname">
+            <Form.Item name="address">
               <Input.TextArea />
             </Form.Item>
             อำเภอ/เขต
-            <Form.Item name="ืname">
+            <Form.Item name="district">
               <Input />
             </Form.Item>
             จังหวัด
-            <Form.Item name="ืname">
+            <Form.Item name="province">
               <Input />
             </Form.Item>
             รหัสไปรษณีย์
-            <Form.Item name="ืname">
+            <Form.Item name="postal">
               <Input />
             </Form.Item>
           </Form>
