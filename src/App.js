@@ -44,7 +44,9 @@ const App = () => {
       <Switch>
         <Layout className="layout">
           <NavHeader />
-          <Route path="/"></Route>
+          <Route exact path="/">
+            <HomePage/>
+          </Route>
           <Route exact path="/create-package">
             <ChoosePackagePage />
           </Route>
