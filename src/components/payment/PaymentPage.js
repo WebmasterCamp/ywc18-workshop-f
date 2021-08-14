@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input , message } from "antd";
 import React, { useState , useEffect } from "react";
 import { css } from "@emotion/react";
 import { PAGE } from "../choose-package/ChoosePackagePage";
@@ -88,7 +88,11 @@ export const PaymentPage = ({ setPage }) => {
       <PrimaryButton
         className="mt-8"
         onSubmit={() => {
+         if(!formData.cardNumber || !formData.cardExpire || !formData.cvv || !formData.cardHolder){
+          message.info('โปรดกรอกข้อมูลให้ครบ');
+         }else{
           setPage(PAGE.ACCOUNT_INFO);
+         }
         }}
       >
         ชำระเงิน
