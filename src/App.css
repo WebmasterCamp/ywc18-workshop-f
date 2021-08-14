@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-*{
-  font-family: 'Kanit', sans-serif;
+* {
+  font-family: "Kanit", sans-serif;
 }
 
 .App {
@@ -32,6 +32,12 @@
 
 .App-link {
   color: #61dafb;
+}
+body {
+  max-width: 475px;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 @keyframes App-logo-spin {
