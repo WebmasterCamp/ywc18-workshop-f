@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { css } from "@emotion/react";
 import { PrimaryButton } from "../PrimaryButton";
 
-export const LoginPage = ({ setIsLogin, subscribed }) => {
+export const LoginPage = ({ setIsLogin, subscribed, user }) => {
   const [form] = Form.useForm();
   const history = useHistory();
   const [name, setname] = useState("");
@@ -28,7 +28,7 @@ export const LoginPage = ({ setIsLogin, subscribed }) => {
               <Input
                 type="email"
                 placeholder="Email address"
-                onChange={(e) => setname(e)}
+                onChange={(e) => setname(e.target.value)}
               />
             </Form.Item>
             <div className="text-black text-lg mb-2 mt-4">รหัสผ่าน</div>
@@ -36,7 +36,7 @@ export const LoginPage = ({ setIsLogin, subscribed }) => {
               <Input
                 type="password"
                 placeholder="Password"
-                onChange={(e) => setpassword(e)}
+                onChange={(e) => setpassword(e.target.value)}
               />
             </Form.Item>
           </Form>
@@ -45,8 +45,8 @@ export const LoginPage = ({ setIsLogin, subscribed }) => {
       <PrimaryButton
         className="mt-8"
         onSubmit={() => {
-          if (!subscribed) {
-            message.error("ไม่พบอีเมลนี้");
+          if (user !== name) {
+            message.error("ไม่พบอีเมลหรือเบอร์โทรศัพท์นี้");
           } else {
             if (name !== "" && password !== "") {
               setIsLogin(true);
@@ -61,7 +61,7 @@ export const LoginPage = ({ setIsLogin, subscribed }) => {
         เข้าสู่ระบบ
       </PrimaryButton>
       <button
-        className="text-gray-400  mb-4 cursor-pointer hover:text-color-700 text-2xl mx-auto w-full mt-4 font-normal "
+        className="text-gray-400  mb-4 cursor-pointer hover:text-color-700 text-2xl mx-auto w-full mt-4 font-normal"
         onClick={() => {
           history.push("/register");
         }}

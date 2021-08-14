@@ -27,7 +27,7 @@ export const SubscribePackagePage = ({ setPage, setSubscribed }) => {
     "ไก่ทอด",
   ]);
   return (
-    <div className="w-full h-full text-2xl px-5 py-12">
+    <div className="w-full h-screen text-2xl px-5 py-12">
       <div
         className="bg-gray-50 mx-auto p-5 text-yellow-400 font-bold border-black border-2 rounded-lg"
         css={css`
@@ -80,7 +80,7 @@ export const SubscribePackagePage = ({ setPage, setSubscribed }) => {
         <PrimaryButton
           className="mt-16 flex justify-center items-center mr-2"
           onSubmit={() => {
-            setSubscribed(true);
+            localStorage.setItem("isSubscribed", true);
             history.push("/");
           }}
         >

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { Button, Form, Input , message } from "antd";
-import React, { useState , useEffect } from "react";
+import { Button, Form, Input, message } from "antd";
+import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import { PAGE } from "../choose-package/ChoosePackagePage";
 import { PrimaryButton } from "../PrimaryButton";
@@ -9,17 +9,19 @@ import { LeftOutlined } from "@ant-design/icons";
 export const PaymentPage = ({ setPage }) => {
   const [form] = Form.useForm();
   const [paymentMethod, setPaymentMethod] = useState(false);
-  const [formData , setFormData] = useState({cardNumber:"",cardExpire:"",cvv:"",cardHolder:""})
+  const [formData, setFormData] = useState({
+    cardNumber: "",
+    cardExpire: "",
+    cvv: "",
+    cardHolder: "",
+  });
 
-  let changeHandle = (e) =>{
-    e.preventDefault()
-    setFormData({...formData,[e.target.name]:e.target.value})
-    console.log("Yes")
-  }
+  let changeHandle = (e) => {
+    e.preventDefault();
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  useEffect(()=>{
-    console.log(formData)
-  },[formData])
+  useEffect(() => {}, [formData]);
 
   return (
     <div className="w-full h-full text-2xl px-5 py-12">
@@ -60,19 +62,34 @@ export const PaymentPage = ({ setPage }) => {
           <Form form={form}>
             หมายเลขบัตร
             <Form.Item name="cardNumber">
-              <Input type="text" placeholder="Card number" value={form.cardNumber} name="cardNumber" onChange={(e)=> changeHandle(e)}/>
+              <Input
+                type="text"
+                placeholder="Card number"
+                value={form.cardNumber}
+                name="cardNumber"
+                onChange={(e) => changeHandle(e)}
+              />
             </Form.Item>
             <div className="flex space-x-3 mt-8">
               <div>
                 บัตรหมดอายุ
                 <Form.Item name="cardExpire">
-                  <Input type="text" placeholder="Card expires date" name="cardExpire" onChange={(e)=> changeHandle(e)}/>
+                  <Input
+                    type="text"
+                    placeholder="Card expires date"
+                    name="cardExpire"
+                    onChange={(e) => changeHandle(e)}
+                  />
                 </Form.Item>
               </div>
               <div>
                 รหัสหลังบัตร
                 <Form.Item name="cvv">
-                  <Input placeholder="cvv" name="cvv" onChange={(e)=> changeHandle(e)}/>
+                  <Input
+                    placeholder="cvv"
+                    name="cvv"
+                    onChange={(e) => changeHandle(e)}
+                  />
                 </Form.Item>
               </div>
             </div>
@@ -80,7 +97,11 @@ export const PaymentPage = ({ setPage }) => {
               ชื่อบนบัตร (หากไม่มี กรุณาใส่ชื่อ-นามสกุล)
             </div>
             <Form.Item name="cardHolder">
-              <Input name="cardHolder" placeholder="Card holder name" onChange={(e)=> changeHandle(e)}/>
+              <Input
+                name="cardHolder"
+                placeholder="Card holder name"
+                onChange={(e) => changeHandle(e)}
+              />
             </Form.Item>
           </Form>
         </div>
@@ -88,11 +109,16 @@ export const PaymentPage = ({ setPage }) => {
       <PrimaryButton
         className="mt-8"
         onSubmit={() => {
-         if(!formData.cardNumber || !formData.cardExpire || !formData.cvv || !formData.cardHolder){
-          message.error('โปรดกรอกข้อมูลให้ครบ');
-         }else{
-          setPage(PAGE.ACCOUNT_INFO);
-         }
+          if (
+            !formData.cardNumber ||
+            !formData.cardExpire ||
+            !formData.cvv ||
+            !formData.cardHolder
+          ) {
+            message.error("โปรดกรอกข้อมูลให้ครบ");
+          } else {
+            setPage(PAGE.ACCOUNT_INFO);
+          }
         }}
       >
         ชำระเงิน

@@ -20,26 +20,37 @@ const App = () => {
 
   const [isLogin, setIsLogin] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
+  const [user, setuser] = useState("");
 
   useEffect(() => {
-    window.addEventListener("storage", () => {
-      setIsLogin(localStorage.getItem("isLogin"));
-    });
-  }, []);
-
-  useEffect(() => {
-    if (!isLogin) {
+    const user = localStorage.getItem("user");
+    if (!user) {
       history.push("/home");
     } else {
       setIsLogin(true);
+      setuser(user);
     }
-  }, [isLogin]);
+  }, [localStorage.getItem("user")]);
+
+  useEffect(() => {
+    const isSubscribed = localStorage.getItem("isSubscribed");
+    if (!isSubscribed) {
+      setSubscribed(false);
+    } else {
+      setSubscribed(true);
+    }
+  }, [localStorage.getItem("isSubscribed")]);
 
   if (!isLogin) {
     return (
       <div>
         <Route exact path="/login">
-          <LoginPage setIsLogin={setIsLogin} subscribed={subscribed} />
+          <LoginPage
+            setIsLogin={setIsLogin}
+            subscribed={subscribed}
+            user={user}
+            setuser={setuser}
+          />
         </Route>
         <Route exact path="/register">
           <RegisterPage setIsLogin={setIsLogin} />
