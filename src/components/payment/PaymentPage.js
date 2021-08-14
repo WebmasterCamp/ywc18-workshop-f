@@ -1,8 +1,9 @@
-import {Button, Form, Input} from "antd";
+import { Button, Form, Input } from "antd";
 import React from "react";
-import {PAGE} from "../choose-package/ChoosePackagePage";
+import { PAGE } from "../choose-package/ChoosePackagePage";
 
-export const PaymentPage = () => {
+export const PaymentPage = ({ setPage }) => {
+    const [form] = Form.useForm()
     return <div className="w-full h-full text-2xl">
         <div className="bg-white mx-auto p-5">
             Payment

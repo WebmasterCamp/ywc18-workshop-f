@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { Button, Form, Input } from "antd";
 import { ChoosePackage } from './ChoosePackage'
-import {PaymentPage} from "../payment/PaymentPage";
-import {AccountInfoPage} from "../account-info/AccountInfoPage";
+import { PaymentPage } from "../payment/PaymentPage";
+import { AccountInfoPage } from "../account-info/AccountInfoPage";
 
 export const PAGE = {
     CHOOSE_PACKAGE: 'choose-package-page',
@@ -22,10 +22,10 @@ export const ChoosePackagePage = () => {
             return <ChoosePackage setPage={setPage} />;
         }
         case PAGE.PAYMENT: {
-            return <PaymentPage/>;
+            return <PaymentPage setPage={setPage} />;
         }
         case PAGE.ACCOUNT_INFO: {
-           return <AccountInfoPage/>
+            return <AccountInfoPage setPage={setPage} />
         }
         default: { return <></> }
     }

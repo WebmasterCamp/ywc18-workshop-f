@@ -1,7 +1,8 @@
-import {Button, Form, Input} from "antd";
+import { Button, Form, Input } from "antd";
 import React from "react";
 
-export const AccountInfoPage = () => {
+export const AccountInfoPage = ({ setPage }) => {
+    const [form] = Form.useForm()
     return <div className="w-full h-full text-2xl">
         <div className="bg-white mx-auto p-5">
             ข้อมูลบัญชีของคุณ

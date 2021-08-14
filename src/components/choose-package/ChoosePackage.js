@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Page } from "./ChoosePackagePage";
+import { PAGE } from "./ChoosePackagePage";
 import { Button, Form, Input } from "antd";
-import { PAGE } from "stylis";
+
 
 const PACKAGE = {
     THREE: "three",
@@ -10,7 +10,7 @@ const PACKAGE = {
 export const ChoosePackage = ({ setPage }) => {
     const [selectedPackage, setSelectedPackage] = useState(PACKAGE.THREE);
 
-    const [form] = Form.useForm();
+
     return (
         <div className="w-full h-full text-2xl">
             <div className="bg-white mx-auto p-5">
