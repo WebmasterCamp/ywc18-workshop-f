@@ -15,6 +15,7 @@ import { ChoosePackagePage } from "./components/choose-package/ChoosePackagePage
 import { css } from "@emotion/react";
 import {MerchantOrderPage} from "./components/merchant/MerchantOrderPage";
 import {ContactMerchantPage} from "./components/merchant/ContactMerchantPage";
+import {ManageMerchantPage} from "./components/merchant/ManageMerchantPage";
 
 const App = () => {
   const history = useHistory();
@@ -103,7 +104,7 @@ const App = () => {
             {/*  Coming Soon ...*/}
             {/*</div>*/}
             {/*<MerchantOrderPage/>*/}
-            <ContactMerchantPage/>
+            <ManageMerchantPage/>
           </Route>
           <Route exact path="/create-package">
             <ChoosePackagePage setSubscribed={setSubscribed} />

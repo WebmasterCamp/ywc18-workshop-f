@@ -52,7 +52,7 @@ export const MenuListPage = () => {
             <div className="text-5xl text-black">
                 รายการอาหาร
             </div>
-            <div className="mt-ๅ text-xl text-gray-400">
+            <div className="text-xl text-gray-400">
                 อาหารที่คุณจะได้รับ
             </div>
 
