@@ -9,6 +9,7 @@ import { Layout } from "antd";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { LoginPage } from "./components/login/LoginPage";
+import { RegisterPage } from "./components/login/RegisterPage";
 
 const App = () => {
   const history = useHistory();
@@ -26,9 +27,14 @@ const App = () => {
 
   if (!isLogin) {
     return (
-      <Route exact path="/login">
-        <LoginPage setIsLogin={setIsLogin} />
-      </Route>
+      <>
+        <Route exact path="/login">
+          <LoginPage setIsLogin={setIsLogin} />
+        </Route>
+        <Route exact path="/register">
+          <RegisterPage setIsLogin={setIsLogin} />
+        </Route>
+      </>
     );
   }
 

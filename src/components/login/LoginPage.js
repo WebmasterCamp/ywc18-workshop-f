@@ -1,8 +1,8 @@
 import React from "react";
-import {Button, Form, Input} from "antd";
-import {useHistory} from "react-router-dom";
+import { Button, Form, Input } from "antd";
+import { useHistory } from "react-router-dom";
 
-export const LoginPage = ({setIsLogin}) => {
+export const LoginPage = ({ setIsLogin }) => {
     const [form] = Form.useForm()
     const history = useHistory();
     return (
@@ -12,10 +12,10 @@ export const LoginPage = ({setIsLogin}) => {
                 <div className="mb-8 mt-8">
                     <Form form={form}>
                         <Form.Item name="email">
-                            <Input type="email" placeholder="Email address"/>
+                            <Input type="email" placeholder="Email address" />
                         </Form.Item>
                         <Form.Item name="password">
-                            <Input type="password" placeholder="Password"/>
+                            <Input type="password" placeholder="Password" />
                         </Form.Item>
                     </Form>
                     <Button
