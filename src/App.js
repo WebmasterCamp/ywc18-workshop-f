@@ -19,6 +19,8 @@ import { LoginPage } from "./components/login/LoginPage";
 import { RegisterPage } from "./components/login/RegisterPage";
 import { ChoosePackagePage } from "./components/choose-package/ChoosePackagePage";
 import { css } from "@emotion/react";
+import {MerchantOrderPage} from "./components/merchant/MerchantOrderPage";
+import {ContactMerchantPage} from "./components/merchant/ContactMerchantPage";
 
 const App = () => {
   const history = useHistory();
@@ -104,9 +106,11 @@ const App = () => {
             <HomePage subscribed={subscribed} setSubscribed={setSubscribed} />
           </Route>
           <Route exact path="/merchant">
-            <div className="flex justify-center items-center w-full h-screen text-2xl">
-              Coming Soon ...
-            </div>
+            {/*<div className="flex justify-center items-center w-full h-screen text-2xl">*/}
+            {/*  Coming Soon ...*/}
+            {/*</div>*/}
+            {/*<MerchantOrderPage/>*/}
+            <ContactMerchantPage/>
           </Route>
           <Route exact path="/create-package">
             <ChoosePackagePage setSubscribed={setSubscribed} />
