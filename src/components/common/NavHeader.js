@@ -12,7 +12,15 @@ function NavHeader() {
     <Header className="bg-yellow-400 pd-1">
         <div className="flex justify-between items-center">
             <h1>Logo</h1>
-            <Button className="bg-yellow-400 hover:bg-color-600 cursor-pointer text-white border-black rounded-lg hover:bg-yellow-600">
+            <Button
+                className="bg-yellow-400 hover:bg-color-600 cursor-pointer text-white border-black rounded-lg hover:bg-yellow-600"
+                onClick={
+                    () => {
+                        localStorage.setItem("isLogin", false)
+                        window.location.href = "/";
+                    }
+                }
+            >
                 Logout
             </Button>
         </div>
