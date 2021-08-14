@@ -1,5 +1,5 @@
 import { Button, Form, Input, Checkbox } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { PAGE } from "../choose-package/ChoosePackagePage";
 
 const plainOptions = [
@@ -15,7 +15,13 @@ const CheckboxGroup = Checkbox.Group;
 
 export const LimitationPage = ({ setPage }) => {
   const [form] = Form.useForm();
-  const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
+  const [checkedList, setCheckedList] = useState(defaultCheckedList);
+  const [spicy, setSpicy] = useState(false);
+  const [sweet, setSweet] = useState(false);
+  const [beef, setBeef] = useState(false);
+  const [pork, setPork] = useState(false);
+  const [seaFood, setSeaFood] = useState(false);
+  const [vegan, setVegan] = useState(false);
 
   const onChange = (list) => {
     setCheckedList(list);
@@ -25,12 +31,29 @@ export const LimitationPage = ({ setPage }) => {
     <div className="w-full h-full text-2xl">
       <div className="bg-white mx-auto p-5">
         มีข้อจำกัดที่อยากบอกให้เรารู้ไหม ?
-        <div className="mt-8">
-          <CheckboxGroup
-            options={plainOptions}
-            value={checkedList}
-            onChange={onChange}
-          />
+        <div className="mt-8 flex flex-col">
+          <Checkbox
+            className="ml-2"
+            onChange={() => setSpicy(!spicy)}
+            checked={spicy}
+          >
+            ไม่ทานเผ็ด
+          </Checkbox>
+          <Checkbox onChange={() => setSweet(!sweet)} checked={sweet}>
+            ไม่ทานหวาน
+          </Checkbox>
+          <Checkbox onChange={() => setBeef(!beef)} checked={beef}>
+            ไม่ทานเนื้อวัว
+          </Checkbox>
+          <Checkbox onChange={() => setPork(!pork)} checked={pork}>
+            ไม่ทานเนื้อหมู
+          </Checkbox>
+          <Checkbox onChange={() => setSeaFood(!seaFood)} checked={seaFood}>
+            ไม่ทายอาหารทะเล
+          </Checkbox>
+          <Checkbox onChange={() => setVegan(!vegan)} checked={vegan}>
+            ทานมังสวีรัต
+          </Checkbox>
         </div>
         <div className="flex space-x-3">
           <Button

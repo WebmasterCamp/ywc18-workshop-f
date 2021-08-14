@@ -1,7 +1,24 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
 import { Row, Col } from "antd";
 import { ArrowRightOutlined, CheckCircleFilled } from "@ant-design/icons";
 import { PAGE } from "./ChoosePackagePage";
+import { css } from "@emotion/css";
+
+const imgs = [
+  "assets/image 1.png",
+  "assets/image 2.png",
+  "assets/image 3.png",
+  "assets/image 4.png",
+  "assets/image 5.png",
+  "assets/image 6.png",
+  "assets/image 7.png",
+  "assets/image 8.png",
+  "assets/image 9.png",
+  "assets/image 10.png",
+  "assets/image 11.png",
+  "assets/image 12.png",
+];
 
 export const ChooseFood = ({ setPage }) => {
   const [pic, setPic] = useState([]);
@@ -32,11 +49,12 @@ export const ChooseFood = ({ setPage }) => {
           กรุณาเลือกอย่างน้อย 1 รูป
         </div>
         <Row gutter={[8, 8]}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16]?.map((x) => {
+          {imgs?.map((x) => {
             const isSelected = !!pic?.find((pic) => pic === x);
             return (
               <Col
                 span={8}
+                css={css``}
                 className="relative cursor-pointer"
                 onClick={() => {
                   if (isSelected) {
@@ -46,7 +64,11 @@ export const ChooseFood = ({ setPage }) => {
                   }
                 }}
               >
-                <img className="rounded" src={"assets/1.png"} />
+                <img
+                  className="rounded object-cover"
+                  src={x}
+                  style={{ height: "108px", width: "100%" }}
+                />
                 {isSelected && (
                   <CheckCircleFilled
                     className="absolute top-0 right-0"
