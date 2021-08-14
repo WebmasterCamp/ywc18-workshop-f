@@ -2,8 +2,12 @@ import "antd/dist/antd.css";
 
 import { Button, Layout, Menu, Drawer } from "antd";
 import { Link, useHistory } from "react-router-dom";
-import { PAGE } from "../choose-package/ChoosePackagePage";
+
 import React, { useState } from "react";
+import { LogoutOutlined } from "@ant-design/icons";
+
+import { PAGE } from "../choose-package/ChoosePackagePage";
+
 import logo from "../../logo.svg";
 import { MenuOutlined } from "@ant-design/icons";
 
@@ -18,7 +22,8 @@ function NavHeader() {
         <img className="w-2/6 " src={logo} alt="FoodAround" />
         <div className="flex justify-end items-center">
           <Button
-            className="bg-yellow-400 hover:bg-color-600 cursor-pointer text-white border-black rounded-lg hover:bg-yellow-600"
+            icon={<LogoutOutlined />}
+            className="bg-yellow-500 hover:bg-color-600 cursor-pointer text-white border-black rounded-lg hover:bg-yellow-600"
             onClick={() => {
               localStorage.setItem("isLogin", false);
               window.location.href = "/";
