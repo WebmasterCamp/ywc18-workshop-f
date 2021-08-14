@@ -75,13 +75,18 @@ const App = () => {
               onClick={() => {
                 history.push("/login");
               }}
-              className="absolute text-2xl w-64 h-16 bg-yellow-400 border-2 border-black rounded-lg hover:bg-yellow-600 hover:border-none"
+              className="absolute text-2xl w-64 h-16 bg-yellow-400 border-2 border-black rounded-lg hover:bg-yellow-600 hover:border-none hover:text-black"
               css={css`
                 top: 380px;
                 @media only screen and (max-width: 375px) {
                   left: 70px;
                 }
                 left: 100px;
+
+                .ant-btn:hover,
+                .ant-btn:focus {
+                  color: black !important;
+                }
               `}
             >
               สมัครเลย
@@ -125,13 +130,16 @@ const App = () => {
                 onClick={() => {
                   history.push("/");
                 }}
-                className="absolute text-2xl w-64 h-16 bg-yellow-400 border-2 text-black border-black rounded-lg hover:bg-yellow-600 hover:border-none hover:text-black"
+                className="absolute text-2xl w-64 h-16 bg-yellow-400 border-2 text-black border-black rounded-lg hover:bg-yellow-600 hover:border-none "
                 css={css`
                   top: 380px;
                   @media only screen and (max-width: 375px) {
                     left: 70px;
                   }
                   left: 100px;
+                  .ant-btn:hover {
+                    color: black !important;
+                  }
                 `}
               >
                 หน้าหลัก
