@@ -7,7 +7,7 @@ export const LoginPage = ({ setIsLogin }) => {
     const history = useHistory();
     return (
         <div className="w-full h-full text-2xl">
-            <div className="bg-white mx-auto p-5">
+            <div className="bg-white mx-auto p-5 text-yellow-400 font-bold">
                 Login
                 <div className="mb-8 mt-8">
                     <Form form={form}>
@@ -18,14 +18,17 @@ export const LoginPage = ({ setIsLogin }) => {
                             <Input type="password" placeholder="Password" />
                         </Form.Item>
                     </Form>
-                    <Button
+                    <div className="text-blue-500 text-xs mb-4 cursor-pointer hover:text-color-700" onClick={() => {
+                        history.push("/register")
+                    }}>Register?</div>
+                    <Button className="w-full bg-yellow-400 hover:bg-color-600 cursor-pointer text-white border-none"
                         onClick={() => {
                             setIsLogin(true);
                             localStorage.setItem("isLogin", true);
                             history.push("/");
                         }}
                     >
-                        next
+                        Login
                     </Button>
                 </div>
             </div>
