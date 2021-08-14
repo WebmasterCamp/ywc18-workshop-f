@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import { Row, Col } from "antd";
 import { ArrowRightOutlined, CheckCircleFilled } from "@ant-design/icons";
+import { PAGE } from "./ChoosePackagePage";
 
-export const ChooseFood = () => {
+export const ChooseFood = ({ setPage }) => {
   const [pic, setPic] = useState([]);
   return (
     <div className="w-full h-full text-2xl">
       <div className="bg-white mx-auto p-5">
         {/* ข้อมูลบัญชีของคุณ */}
         <div className="flex justify-between items-center">
-          <div className="text-xs underline text-gray-700">ข้าม</div>
+          <div
+            className="text-xs underline text-gray-700"
+            onClick={() => {
+              setPage(PAGE.ACCOUNT_INFO);
+            }}
+          >
+            ข้าม
+          </div>
           <div
             className="rounded-xl bg-yellow-400 border-yellow-400 w-12 h-8 flex justify-center items-center hover:bg-yellow-600 hover:border-yellow-600 cursor-pointer"
-            onClick={() => {}}
+            onClick={() => {
+              setPage(PAGE.LIMITATION);
+            }}
           >
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
           </div>
