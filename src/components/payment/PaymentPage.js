@@ -89,7 +89,7 @@ export const PaymentPage = ({ setPage }) => {
         className="mt-8"
         onSubmit={() => {
          if(!formData.cardNumber || !formData.cardExpire || !formData.cvv || !formData.cardHolder){
-          message.info('โปรดกรอกข้อมูลให้ครบ');
+          message.error('โปรดกรอกข้อมูลให้ครบ');
          }else{
           setPage(PAGE.ACCOUNT_INFO);
          }

@@ -19,9 +19,9 @@ export const RegisterPage = ({ setIsLogin }) => {
 
   let checkVerify = () =>{
     if(!formData.email || !formData.password || !formData.conPassword){
-      message.info("โปรกรอกข้อมูลให้ครบ")
+      message.error("โปรกรอกข้อมูลให้ครบ")
     }else if(formData.password !== formData.conPassword){
-      message.info("รหัสผ่านไม่ตรงกัน")
+      message.error("รหัสผ่านไม่ตรงกัน")
     }else{
       setIsLogin(true);
       localStorage.setItem("isLogin", true);
