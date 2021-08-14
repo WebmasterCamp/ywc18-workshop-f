@@ -30,21 +30,27 @@ export const ChooseFood = ({ setPage }) => {
           <div
             className="text-xs underline text-gray-700"
             onClick={() => {
-              setPage(PAGE.ACCOUNT_INFO);
+              setPage(PAGE.LIMITATION);
             }}
           >
             ข้าม
           </div>
           <div
-            className="rounded-xl bg-yellow-400 border-yellow-400 w-12 h-8 flex justify-center items-center hover:bg-yellow-600 hover:border-yellow-600 cursor-pointer"
+            className={`rounded-xl  w-12 h-8 flex justify-center items-center ${
+              pic?.length > 0
+                ? "bg-yellow-400 border-yellow-400 hover:bg-yellow-600 hover:border-yellow-600 cursor-pointer"
+                : "bg-gray-400 border-none cursor-not-allowed"
+            }`}
             onClick={() => {
-              setPage(PAGE.LIMITATION);
+              if (pic?.length > 0) {
+                setPage(PAGE.LIMITATION);
+              }
             }}
           >
             <ArrowRightOutlined style={{ fontSize: "12px" }} />
           </div>
         </div>
-        <div className="mb-4 mt-8">บอกเราหน่อยว่าอยากกินอะไร</div>
+        <div className="mb-2 mt-4">บอกเราหน่อยว่าอยากกินอะไร</div>
         <div className="mb-8 text-sm text-gray-700">
           กรุณาเลือกอย่างน้อย 1 รูป
         </div>
@@ -54,7 +60,6 @@ export const ChooseFood = ({ setPage }) => {
             return (
               <Col
                 span={8}
-                css={css``}
                 className="relative cursor-pointer"
                 onClick={() => {
                   if (isSelected) {

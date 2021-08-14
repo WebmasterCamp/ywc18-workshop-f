@@ -18,7 +18,7 @@ export const PAGE = {
 export const ChoosePackagePage = () => {
   const [form] = Form.useForm();
   const [page, setPage] = useState(PAGE.CHOOSE_PACKAGE);
-  console.log("hi");
+  console.log(`page`, page);
 
   switch (page) {
     case PAGE.CHOOSE_PACKAGE: {

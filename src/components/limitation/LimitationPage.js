@@ -1,6 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import { Button, Form, Input, Checkbox } from "antd";
 import React, { useState } from "react";
 import { PAGE } from "../choose-package/ChoosePackagePage";
+import { css } from "@emotion/react";
+import { PrimaryButton } from "../PrimaryButton";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 const plainOptions = [
   "ไม่ทานเผ็ด",
@@ -28,9 +32,17 @@ export const LimitationPage = ({ setPage }) => {
   };
 
   return (
-    <div className="w-full h-full text-2xl">
-      <div className="bg-white mx-auto p-5">
-        มีข้อจำกัดที่อยากบอกให้เรารู้ไหม ?
+    <div className="w-full h-full text-2xl px-5 py-12">
+      <div
+        className="bg-gray-50 mx-auto p-5 text-yellow-400 font-bold border-black border-2 rounded-lg"
+        css={css`
+          height: 60% !important;
+        `}
+      >
+        <div className="text-4xl text-black">
+          มีข้อจำกัดที่อยากบอกให้เรารู้ไหม ?
+        </div>
+
         <div className="mt-8 flex flex-col">
           <Checkbox
             className="ml-2"
@@ -55,24 +67,24 @@ export const LimitationPage = ({ setPage }) => {
             ทานมังสวีรัต
           </Checkbox>
         </div>
-        <div className="flex space-x-3">
-          <Button
-            className="w-full hover:bg-color-600 cursor-pointer text-black border-none mt-16 rounded-lg hover:bg-yellow-600"
-            onClick={() => {
-              setPage(PAGE.CHOOSE_FOOD);
-            }}
-          >
-            ยอดกลับ
-          </Button>
-          <Button
-            className="w-full bg-yellow-400 hover:bg-color-600 cursor-pointer text-black border-none mt-16 rounded-lg hover:bg-yellow-600"
-            onClick={() => {
-              setPage(PAGE.LIMITATION);
-            }}
-          >
-            ต่อไป
-          </Button>
-        </div>
+      </div>
+      <div className="flex space-x-3">
+        <Button
+          className="w-full  cursor-pointer text-black border-none mt-16 rounded-lg h-16 flex justify-center items-center"
+          onClick={() => {
+            setPage(PAGE.CHOOSE_FOOD);
+          }}
+        >
+          <LeftOutlined style={{ fontSize: "12px" }} /> ยอดกลับ
+        </Button>
+        <PrimaryButton
+          className="mt-16 flex justify-center items-center mr-2"
+          onSubmit={() => {
+            setPage(PAGE.LIMITATION);
+          }}
+        >
+          ต่อไป <RightOutlined style={{ fontSize: "12px" }} />
+        </PrimaryButton>
       </div>
     </div>
   );
