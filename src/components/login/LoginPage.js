@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 export const LoginPage = ({ setIsLogin }) => {
     const [form] = Form.useForm()
     const history = useHistory();
+
     return (
         <div className="w-full h-full text-2xl">
             <div className="bg-white mx-auto p-5 text-yellow-400 font-bold">

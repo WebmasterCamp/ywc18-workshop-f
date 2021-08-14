@@ -10,6 +10,7 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { LoginPage } from "./components/login/LoginPage";
 import { RegisterPage } from "./components/login/RegisterPage";
+import { ChoosePackagePage } from "./components/choose-package/ChoosePackagePage";
 
 const App = () => {
   const history = useHistory();
@@ -44,6 +45,9 @@ const App = () => {
         <Layout className="layout">
           <NavHeader />
           <Route path="/"></Route>
+          <Route exact path="/create-package">
+            <ChoosePackagePage />
+          </Route>
           <Route exact path="/app">
             <HomePage />
           </Route>
