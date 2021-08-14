@@ -18,7 +18,7 @@ const plainOptions = [
 const defaultCheckedList = ["ข้าวผัดหมู", "ข้าวหมูทอด", "ส้มตำ", "ไก่ทอด"];
 const CheckboxGroup = Checkbox.Group;
 
-export const SubscribePackagePage = ({ setPage }) => {
+export const SubscribePackagePage = ({ setPage, setSubscribed }) => {
   const history = useHistory();
   const [foodList, setfoodList] = useState([
     "ข้าวผัดหมู",
@@ -80,6 +80,7 @@ export const SubscribePackagePage = ({ setPage }) => {
         <PrimaryButton
           className="mt-16 flex justify-center items-center mr-2"
           onSubmit={() => {
+            setSubscribed(true);
             history.push("/");
           }}
         >

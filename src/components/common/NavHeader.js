@@ -23,7 +23,7 @@ function NavHeader() {
         <div className="flex justify-end items-center">
           <Button
             icon={<LogoutOutlined />}
-            className="bg-yellow-500 hover:bg-color-600 cursor-pointer text-white border-black rounded-lg hover:bg-yellow-600"
+            className="bg-yellow-500 hover:bg-color-600 cursor-pointer text-white border-yellow-400 rounded-lg hover:bg-yellow-600"
             onClick={() => {
               localStorage.setItem("isLogin", false);
               window.location.href = "/";
@@ -54,7 +54,13 @@ function NavHeader() {
         >
           หน้าแรก
         </div>
-        <div>เปลี่ยนเป็นร้านค้า</div>
+        <div
+          onClick={() => {
+            history.push("/merchant");
+          }}
+        >
+          เปลี่ยนเป็นร้านค้า
+        </div>
       </Drawer>
     </div>
   );
