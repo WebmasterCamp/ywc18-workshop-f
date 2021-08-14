@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "antd/dist/antd.css";
 
-function App() {
+import NavHeader from "./components/common/NavHeader";
+import WebsiteFooter from "./components/common/WebsiteFooter";
+import HomePage from "./components/home/HomePage";
+
+import { Layout } from "antd";
+import { Switch, Route, useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { LoginPage } from "./components/login/LoginPage";
+
+const App = () => {
+  const history = useHistory();
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("isLogin");
+
+    if (!isLogin) {
+      history.push("/login");
+    } else {
+      setIsLogin(true);
+    }
+  }, []);
+
+  if (!isLogin) {
+    return (
+      <Route exact path="/login">
+        <LoginPage setIsLogin={setIsLogin} />
+      </Route>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Layout className="layout">
+          <NavHeader />
+          <Route path="/"></Route>
+          <Route exact path="/app">
+            <HomePage />
+          </Route>
+          <Route exact path="/home">
+            <HomePage />
+          </Route>
+          <Route exact path="/list">
+            <HomePage />
+          </Route>
+          <Route exact path="/app">
+            <HomePage />
+          </Route>
+          <WebsiteFooter />
+        </Layout>
+      </Switch>
+    </>
   );
-}
+};
 
 export default App;
