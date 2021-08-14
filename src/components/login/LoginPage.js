@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
-import { Button, Form, Input } from "antd";
+import React, { useState } from "react";
+import { Button, Form, Input, message } from "antd";
 import { useHistory } from "react-router-dom";
 import { css } from "@emotion/react";
 import { PrimaryButton } from "../PrimaryButton";
@@ -8,6 +8,8 @@ import { PrimaryButton } from "../PrimaryButton";
 export const LoginPage = ({ setIsLogin }) => {
   const [form] = Form.useForm();
   const history = useHistory();
+  const [name, setname] = useState("");
+  const [password, setpassword] = useState("");
 
   return (
     <div className="w-full h-screen text-2xl px-5 py-12">
@@ -20,12 +22,20 @@ export const LoginPage = ({ setIsLogin }) => {
         <div className="mb-8 mt-8">
           <Form form={form}>
             <div className="text-black text-lg mb-2">อีเมล/เบอร์โทรศัพท์ </div>
-            <Form.Item name="email">
-              <Input type="email" placeholder="Email address" />
+            <Form.Item name="email" required>
+              <Input
+                type="email"
+                placeholder="Email address"
+                onChange={(e) => setname(e)}
+              />
             </Form.Item>
             <div className="text-black text-lg mb-2 mt-4">รหัสผ่าน</div>
-            <Form.Item name="password">
-              <Input type="password" placeholder="Password" />
+            <Form.Item name="password" required>
+              <Input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setpassword(e)}
+              />
             </Form.Item>
           </Form>
         </div>
@@ -33,21 +43,26 @@ export const LoginPage = ({ setIsLogin }) => {
       <PrimaryButton
         className="mt-8"
         onSubmit={() => {
-          setIsLogin(true);
-          localStorage.setItem("isLogin", true);
-          history.push("/");
+          if (name !== "" && password !== "") {
+            console.log(`name`, name);
+            setIsLogin(true);
+            localStorage.setItem("isLogin", true);
+            history.push("/");
+          } else {
+            message.error("กรุณากรอก อีเมลหรือพาสเวิร์ด");
+          }
         }}
       >
         เข้าสู่ระบบ
       </PrimaryButton>
-      <div
-        className="text-gray-400  mb-4 cursor-pointer hover:text-color-700 text-2xl text-center mt-4 font-normal"
+      <button
+        className="text-gray-400  mb-4 cursor-pointer hover:text-color-700 text-2xl mx-auto w-full mt-4 font-normal "
         onClick={() => {
           history.push("/register");
         }}
       >
         สมัครสมาชิก
-      </div>
+      </button>
     </div>
   );
 };
