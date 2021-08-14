@@ -40,6 +40,7 @@ export const ChoosePackage = ({ setPage }) => {
 
                 <Button className="w-full bg-yellow-400 hover:bg-color-600 cursor-pointer text-white border-none mt-16 rounded-lg hover:bg-yellow-600"
                     onClick={() => {
+                        setPage(PAGE.PAYMENT)
 
                     }}
                 >

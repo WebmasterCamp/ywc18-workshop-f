@@ -5,6 +5,7 @@ import { ChoosePackage } from './ChoosePackage'
 export const PAGE = {
     CHOOSE_PACKAGE: 'choose-package-page',
     PAYMENT: 'payment',
+    ACCOUNT_INFO: 'account-info',
 
 
 }
