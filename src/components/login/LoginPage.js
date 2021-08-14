@@ -10,22 +10,22 @@ export const LoginPage = ({ setIsLogin }) => {
   const history = useHistory();
 
   return (
-    <div className="w-full h-screen text-2xl px-5 py-12">
+    <div className="w-full max-w-xl h-screen text-2xl px-5 py-12 mx-auto">
       <div
         className="bg-gray-50 mx-auto p-5 text-yellow-400 font-bold border-black border-2 rounded-lg"
         css={css``}
       >
         <div className="text-5xl text-black">เข้าสู่ระบบ</div>
-        <div className="mt-6 text-xl text-gray-400">จัดการบัญชีของฉัน</div>
-        <div className="mb-8 mt-8">
+        <div className="mt-6 text-xl text-gray-400 font-normal">จัดการบัญชีของฉัน</div>
+        <div className="mb-8 mt-8 font-normal">
           <Form form={form}>
             <div className="text-black text-lg mb-2">อีเมล/เบอร์โทรศัพท์ </div>
             <Form.Item name="email">
-              <Input type="email" placeholder="Email address" />
+              <Input type="email" placeholder="Email address" classsName=""/>
             </Form.Item>
             <div className="text-black text-lg mb-2 mt-4">รหัสผ่าน</div>
             <Form.Item name="password">
-              <Input type="password" placeholder="Password" />
+              <Input type="password" placeholder="Password" classsName=""/>
             </Form.Item>
           </Form>
         </div>
