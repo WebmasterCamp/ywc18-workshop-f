@@ -75,12 +75,12 @@ export const LimitationPage = ({ setPage }) => {
             setPage(PAGE.CHOOSE_FOOD);
           }}
         >
-          <LeftOutlined style={{ fontSize: "12px" }} /> ยอดกลับ
+          <LeftOutlined style={{ fontSize: "12px" }} /> ย้อนกลับ
         </Button>
         <PrimaryButton
           className="mt-16 flex justify-center items-center mr-2"
           onSubmit={() => {
-            setPage(PAGE.LIMITATION);
+            setPage(PAGE.SUBSCRIBE_PACKAGE);
           }}
         >
           ต่อไป <RightOutlined style={{ fontSize: "12px" }} />

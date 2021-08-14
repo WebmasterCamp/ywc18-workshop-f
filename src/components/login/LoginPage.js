@@ -13,9 +13,7 @@ export const LoginPage = ({ setIsLogin }) => {
     <div className="w-full h-screen text-2xl px-5 py-12">
       <div
         className="bg-gray-50 mx-auto p-5 text-yellow-400 font-bold border-black border-2 rounded-lg"
-        css={css`
-          height: 80% !important;
-        `}
+        css={css``}
       >
         <div className="text-5xl text-black">เข้าสู่ระบบ</div>
         <div className="mt-6 text-xl text-gray-400">จัดการบัญชีของฉัน</div>
@@ -30,25 +28,25 @@ export const LoginPage = ({ setIsLogin }) => {
               <Input type="password" placeholder="Password" />
             </Form.Item>
           </Form>
-          <PrimaryButton
-            className="mt-8"
-            onSubmit={() => {
-              setIsLogin(true);
-              localStorage.setItem("isLogin", true);
-              history.push("/");
-            }}
-          >
-            เข้าสู่ระบบ
-          </PrimaryButton>
-          <div
-            className="text-gray-400  mb-4 cursor-pointer hover:text-color-700 text-2xl text-center mt-4 font-normal"
-            onClick={() => {
-              history.push("/register");
-            }}
-          >
-            สมัครสมาชิก
-          </div>
         </div>
+      </div>
+      <PrimaryButton
+        className="mt-8"
+        onSubmit={() => {
+          setIsLogin(true);
+          localStorage.setItem("isLogin", true);
+          history.push("/");
+        }}
+      >
+        เข้าสู่ระบบ
+      </PrimaryButton>
+      <div
+        className="text-gray-400  mb-4 cursor-pointer hover:text-color-700 text-2xl text-center mt-4 font-normal"
+        onClick={() => {
+          history.push("/register");
+        }}
+      >
+        สมัครสมาชิก
       </div>
     </div>
   );
