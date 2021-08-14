@@ -1,20 +1,23 @@
 import { Button, Layout, Breadcrumb } from "antd";
+import {PAGE} from "../choose-package/ChoosePackagePage";
+import React from "react";
+import {Link} from "react-router-dom";
 
 const { Content } = Layout;
 
-function Home() {
+function HomePage() {
     return (
-        <Content style={{ padding: "0 50px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className="site-layout-content">Content</div>
-            <Button className="bg-primary text-primary">hi</Button>
-            <div className="text-yellow-400">aek</div>
-        </Content>
+        <div className="w-full h-full text-2xl">
+            <div className="bg-white mx-auto p-5">
+                <div className="text-center mt-8">คุณยังไม่ได้ subscribe</div>
+                <Link to="/create-package">
+                    <Button className="w-full bg-yellow-400 hover:bg-color-600 cursor-pointer text-white border-none mt-8 rounded-lg hover:bg-yellow-600">
+                        ไป subscribe
+                    </Button>
+                </Link>
+            </div>
+        </div>
     );
 }
 
-export default Home;
+export default HomePage;

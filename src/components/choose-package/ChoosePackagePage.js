@@ -33,7 +33,6 @@ export const ChoosePackagePage = () => {
     case PAGE.LIMITATION: {
       return <LimitationPage setPage={setPage} />;
     }
-
     case PAGE.CHOOSE_FOOD: {
       return <ChooseFood setPage={setPage} />;
     }
