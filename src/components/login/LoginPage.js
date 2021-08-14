@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { css } from "@emotion/react";
 import { PrimaryButton } from "../PrimaryButton";
 
-export const LoginPage = ({ setIsLogin }) => {
+export const LoginPage = ({ setIsLogin, subscribed }) => {
   const [form] = Form.useForm();
   const history = useHistory();
   const [name, setname] = useState("");
@@ -45,13 +45,16 @@ export const LoginPage = ({ setIsLogin }) => {
       <PrimaryButton
         className="mt-8"
         onSubmit={() => {
-          if (name !== "" && password !== "") {
-            console.log(`name`, name);
-            setIsLogin(true);
-            localStorage.setItem("isLogin", true);
-            history.push("/");
+          if (!subscribed) {
+            message.error("ไม่พบอีเมลนี้");
           } else {
-            message.error("กรุณากรอก อีเมลหรือพาสเวิร์ด");
+            if (name !== "" && password !== "") {
+              setIsLogin(true);
+              localStorage.setItem("isLogin", true);
+              history.push("/");
+            } else {
+              message.error("กรุณากรอก อีเมลหรือพาสเวิร์ด");
+            }
           }
         }}
       >

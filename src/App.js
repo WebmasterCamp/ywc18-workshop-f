@@ -39,7 +39,7 @@ const App = () => {
     return (
       <div>
         <Route exact path="/login">
-          <LoginPage setIsLogin={setIsLogin} />
+          <LoginPage setIsLogin={setIsLogin} subscribed={subscribed} />
         </Route>
         <Route exact path="/register">
           <RegisterPage setIsLogin={setIsLogin} />
