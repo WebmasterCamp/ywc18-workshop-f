@@ -1,5 +1,6 @@
 import { Button, Form, Input } from "antd";
 import React from "react";
+import {PAGE} from "../choose-package/ChoosePackagePage";
 
 export const AccountInfoPage = ({ setPage }) => {
     const [form] = Form.useForm()
@@ -33,12 +34,24 @@ export const AccountInfoPage = ({ setPage }) => {
                         <Input />
                     </Form.Item>
                 </Form>
-                <Button>
-                    ยอดกลับ
-                </Button>
-                <Button>
-                    ต่อไป
-                </Button>
+                <div className="flex space-x-3">
+                    <Button className="w-full hover:bg-color-600 cursor-pointer text-black border-none mt-16 rounded-lg hover:bg-yellow-600"
+                            onClick={() => {
+                                setPage(PAGE.PAYMENT)
+
+                            }}
+                    >
+                        ยอดกลับ
+                    </Button>
+                    <Button className="w-full bg-yellow-400 hover:bg-color-600 cursor-pointer text-black border-none mt-16 rounded-lg hover:bg-yellow-600"
+                            onClick={() => {
+                                setPage(PAGE.LIMITATION)
+
+                            }}
+                    >
+                        ต่อไป
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
