@@ -10,7 +10,9 @@ const PACKAGE = {
   MONTH: "month",
 };
 
+
 export const ChoosePackage = ({ setPage }) => {
+
   const [selectedPackage, setSelectedPackage] = useState(PACKAGE.THREE);
 
   return (

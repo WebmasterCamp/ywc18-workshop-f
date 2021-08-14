@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
-import { Row, Col } from "antd";
+import {Row, Col, message} from "antd";
 import { ArrowRightOutlined, CheckCircleFilled } from "@ant-design/icons";
 import { PAGE } from "./ChoosePackagePage";
 import { css } from "@emotion/css";
@@ -44,6 +44,8 @@ export const ChooseFood = ({ setPage }) => {
             onClick={() => {
               if (pic?.length > 0) {
                 setPage(PAGE.LIMITATION);
+              } else {
+                message.error("กรุณาเลือกอย่างน้อย 1 รูป")
               }
             }}
           >
