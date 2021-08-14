@@ -26,7 +26,7 @@ export const RegisterPage = ({ setIsLogin }) => {
                         onClick={() => {
                             setIsLogin(true);
                             localStorage.setItem("isLogin", true);
-                            history.push("/");
+                            history.push("/create-package");
                         }}
                     >
                         Register
